@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign-Up Form</title>
+    <link rel="stylesheet" href="./stylesheet.css" />
+  </head>
+  <body>
+    <div id="left">
+      <div class="logo">
+        <img class="logo-image" src="./images/odin-lined.png" alt="" />ODIN
+      </div>
+      <p>
+        Photo by
+        <a href="https://unsplash.com/@wzimmermann">"Wolfram Zimmermann"</a> on
+        <a href="https://unsplash.com">Unsplash</a>
+      </p>
+    </div>
+    <form id="right">
+      <div class="top">
+        <p>
+          Get ready to dive into the thrill of an <em>adventure </em>! We're
+          thrilled that you're eager to join us on an exciting journey. Spare a
+          moment to share some key details, and let's whip up a pulse-pounding
+          experience customized just for you!
+        </p>
+      </div>
+      <div class="middle">
+        <h3>Fill Up the Form now!</h3>
+        <div class="inputs">
+          <div>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" />
+          </div>
+          <div>
+            <label for="last-name"> Last Name</label>
+            <input type="text" id="last-name" name="last-name" />
+          </div>
+        </div>
+        <div class="inputs">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+        </div>
+        <div class="inputs">
+          <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <div id="password-match-message"></div>
+          </div>
+          <div>
+            <label for="confirm-password">Confirm Password</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div>
+          <button>Create Account</button>
+          <p>Already have an account? <a href="#">Log in</a></p>
+        </div>
+      </div>
+    </form>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var passwordInput = document.getElementById("password");
+        var confirmPasswordInput = document.getElementById("confirm-password");
+        var matchMessage = document.getElementById("password-match-message");
+
+        function checkPasswordMatch() {
+          var password = passwordInput.value;
+          var confirmPassword = confirmPasswordInput.value;
+
+          if (password !== confirmPassword) {
+            matchMessage.innerHTML = "Password does not match";
+          } else {
+            matchMessage.innerHTML = "";
+          }
+        }
+
+        passwordInput.addEventListener("input", checkPasswordMatch);
+        confirmPasswordInput.addEventListener("input", checkPasswordMatch);
+      });
+    </script>
+  </body>
+</html>
